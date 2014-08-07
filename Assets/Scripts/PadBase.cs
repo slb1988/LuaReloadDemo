@@ -16,7 +16,7 @@ public class PadBase : MonoBehaviour
     string modelinitStr;
     public virtual void LoadScript(LuaState l)
     {
-        modelinitStr = "local modname = \"" + luaModelName + "\"; local M = {}; _G[modname] = M; package.loaded[modname] = M; setmetatable(M, {__index = _G}); setfenv(1, M)";
+        modelinitStr = string.Format("module(\"{0}\",package.seeall)", luaModelName);
         if (assertScript != null)
             l.DoString(modelinitStr + assertScript.text);
     }

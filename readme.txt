@@ -7,12 +7,15 @@
 不同面板之间，可以通过 "模块名.函数名" 的方式进行访问
 
 核心的语句是这个，通过这种方式产生 域名空间 的概念
+--[[
 local modname = "bbb"
 local M = {}
 _G[modname] = M
 package.loaded[modname] = M
 setmetatable(M, {__index = _G})
 setfenv(1, M)
+]]
+modelinitStr = string.Format("module(\"{0}\",package.seeall)", luaModelName);
 
 这是一个雏形，你可以按照这个思路添加到自己的项目框架中
 
