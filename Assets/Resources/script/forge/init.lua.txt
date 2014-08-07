@@ -1,0 +1,37 @@
+﻿print("dofile: forge.init")
+--[[
+local modname = "forge"
+local M = {}
+_G[modname] = M
+package.loaded[modname] = M
+setmetatable(M, {__index = _G})
+setfenv(1, M)
+]]
+
+function OnInit()
+	print("forge_init")
+end
+
+function OnAwake()
+	print("forge:awake")
+end
+
+function OnStart()
+	print("forge:start")
+end
+
+function OnShow()
+	--print("forge_show")
+end
+
+function OnHide()
+	--print("forge_hide")
+end
+
+function OnEnable()
+	print("forge_enable")
+end
+
+function OnDisable()
+	print("forge_disable")
+end

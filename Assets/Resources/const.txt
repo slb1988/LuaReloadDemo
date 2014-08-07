@@ -1,0 +1,6 @@
+﻿
+function oninit()
+
+	print("global:init")
+
+end

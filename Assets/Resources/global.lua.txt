@@ -1,0 +1,30 @@
+﻿print("dofile: global.init")
+
+luanet.load_assembly("UnityEngine")
+luanet.load_assembly("Assembly-CSharp")
+GameObject = luanet.import_type("UnityEngine.GameObject")
+Resources = luanet.import_type("UnityEngine.Resources")
+Vector3 = luanet.import_type("UnityEngine.Vector3")
+Vector2 = luanet.import_type("UnityEngine.Vector2")
+--System = luanet.load_assembly('System')
+--Collections = luanet.import_type('System.Collections')
+--Hashtable = luanet.import_type('System.Collections.Hashtable')
+--iTween = luanet.import_type('iTween')
+UnityEngine	= luanet.UnityEngine
+Time = UnityEngine.Time
+
+LuaBindingManager = luanet.import_type("LuaBindingManager")
+UILabel = luanet.import_type("UILabel")
+
+-- 获取控件名称，以进行修改
+function getcomponent(parentobj, typename, targetname)
+	return LuaBindingManager.GetComponentFromLua(parentobj, typename, targetname);
+end
+
+function oninit()
+
+	print("global:init")
+
+end
+
+print("see what happend: sss")
